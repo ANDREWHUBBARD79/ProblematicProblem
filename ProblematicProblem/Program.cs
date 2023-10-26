@@ -15,21 +15,18 @@ namespace ProblematicProblem
         static void Main(string[] args)
         {
             Random rng = new Random();
+
             Console.Write("Hello, welcome to the random activity generator! \nWould you like to generate a random activity? yes/no: ");
             bool cont;
 
             var contResponse = Console.ReadLine().ToLower();
         
-            if (contResponse == "yes")
+            if (contResponse != "yes")
             {
-                cont = true;
+                return;
             }
 
-            else
-
-            {
-                cont = false;
-            }
+           
 
 
 
@@ -72,7 +69,7 @@ namespace ProblematicProblem
                 }
             }
 
-            while (cont)
+            do
             {
                 Console.Write("Connecting to the database");
                 for (int i = 0; i < 10; i++)
@@ -101,7 +98,7 @@ namespace ProblematicProblem
                 Console.Write($"Ah got it! {userName}, your random activity is: {randomActivity}! Is this ok or do you want to grab another activity? Keep/Redo: ");
                 Console.WriteLine();
                 cont = (Console.ReadLine().ToLower() == "redo") ? true : false;
-            }
+            } while (cont);
         
     } }
 }
